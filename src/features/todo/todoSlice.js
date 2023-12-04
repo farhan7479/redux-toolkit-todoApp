@@ -32,5 +32,5 @@ export const workSlice = createSlice({
         }
     }
 })
-export const {addWork, removeWork} = workSlice.actions;
+export const {addWork, removeWork,updateWork} = workSlice.actions;
 export default workSlice.reducer;

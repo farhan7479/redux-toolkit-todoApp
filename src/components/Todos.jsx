@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import {removeWork} from '../features/todo/todoSlice'
+import UpdateTodo from './UpdateTodo'
 
 function Todos() {
     const works = useSelector(state => state.works)
@@ -10,13 +11,17 @@ function Todos() {
     <>
     <div>Todos</div>
     <ul className="list-none">
+
         {works.map((todo) => (
+           
           <li
             className="mt-4 flex justify-between items-center bg-zinc-800 px-4 py-2 rounded"
             key={todo.id}
           >
+             
             
             <div className='text-white'>{todo.text}</div>
+            <UpdateTodo todo={todo} />
             <button
              onClick={() => dispatch(removeWork(todo.id))}
               className="text-white bg-red-500 border-0 py-1 px-4 focus:outline-none hover:bg-red-600 rounded text-md"
@@ -36,6 +41,7 @@ function Todos() {
                 />
               </svg>
             </button>
+           
            
 
           </li>
